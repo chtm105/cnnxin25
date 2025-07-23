@@ -1,0 +1,50 @@
+We are using MACOS with Sequoia (V15.5) with M4 chiFirst, need to download FSL, since Quantiphyse is a toolbox made for FSL. 
+On MACOS, we use terminal for the command line.
+
+1. Downloading FSL 
+  curl -Ls https://fsl.fmrib.ox.ac.uk/fsldownloads/fslconda/releases/getfsl.sh | sh -s
+After installation is finished, you’ll see a message “FSL successfully installed”. After that, need to open a new terminal
+NOTE: To access FSL guidelines, type "fsl &". To access the FSLEYES viewer, type "fsleyes -std &"
+
+2. Downloading Quantiphyse
+Installing Quantiphyse needs a conda environment, so need to install anaconda. 
+But you have to bypass the new M4 chip and use the older intel chip which has the installations for quantiphyse and condo already configured
+
+	CONDA_SUBDIR=osx-64 conda create -n qp python=3.7 --no-default-packages -c conda-forge
+	Conda activate qp
+	Pip install quantiphyse 
+	Pip install pyobjc 
+	export QT_MAC_WANTS_LAYER=1
+	"Quantiphyse"
+
+
+Quantiphyse will now begin running. 
+
+2. Preprocess OSIPI (or any dataset) Structural Images (T1w) using FSL
+For my test run, I will be analyzing osipi 1,3,5,7,9
+
+1. Preprocessing: fsl_anat -i {directory}/${subid}_T1w.nii.gz -o {directory}/${subid}_T1w.anat --clobber --nosubcortseg --nocrop
+	fsl_anat -i /Users/channelletham/Documents/Challenge_Data/connexin25test/sub-DRO1/sub-DRO1_T1w.nii.gz --clobber --nosubcortseg --nocrop
+
+	fsl_anat -i /Users/channelletham/Documents/Challenge_Data/connexin25test/sub-DRO3/sub-DRO3_T1w.nii.gz --clobber --nosubcortseg --nocrop
+
+	fsl_anat -i /Users/channelletham/Documents/Challenge_Data/connexin25test/sub-DRO5/sub-DRO5_T1w.nii.gz --clobber --nosubcortseg --nocrop
+
+	fsl_anat -i /Users/channelletham/Documents/Challenge_Data/connexin25test/sub-DRO7/sub-DRO7_T1w.nii.gz --clobber --nosubcortseg --nocrop
+
+	fsl_anat -i /Users/channelletham/Documents/Challenge_Data/connexin25test/sub-DRO9/sub-DRO9_T1w.nii.gz --clobber --nosubcortseg --nocrop
+
+OR —> 
+
+# Define base directory
+BASE_DIR=~/Documents/Challenge_Data/connexin25test
+
+# List of subject IDs
+for SUBID in DRO3 DRO5 DRO7 DRO9; do
+    INPUT="${BASE_DIR}/sub-${SUBID}/sub-${SUBID}_T1w.nii.gz"
+    OUTPUT="${BASE_DIR}/sub-${SUBID}/sub-${SUBID}_T1w.anat"
+
+    echo "Running fsl_anat for subject: $SUBID"
+    fsl_anat -i "$INPUT" -o "$OUTPUT" --clobber --nosubcortseg --nocrop
+done
+
