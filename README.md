@@ -6,7 +6,6 @@ We are using MACOS with Sequoia (V15.5) with a M4 chip. First, need to download 
 After installation is finished, you’ll see a message “FSL successfully installed”. After that, need to open a new terminal
 
 > To access FSL guidelines, type "fsl &".
-> 
 > To access FSLEYES viewer, type "fsleyes -std &"
 
 ## 2. Downloading Quantiphyse
@@ -69,7 +68,7 @@ Why? NaN voxels can appear when something goes wrong during scanning or preproce
 2. Remember to load data for No NaN asl.nii files
 3. Usually, the software will autodetect the parameters, but double check with the parameter detials from the asl.json file
 
-**ASL Data Tab** [[[this is where CT stopped, need to find correct parameters]]]
+**ASL Data Tab** 
 <li>ASL data → subDRO1_asl_nonan.nii</li>
 <li>Control-label pairs → Select if applicable, the order is important! For this data, it's CONTROL-LABEL (find this information in the DRO asl_context file) </li>
 <li> Labelling → cASL/pcASL </li>
@@ -77,18 +76,19 @@ Why? NaN voxels can appear when something goes wrong during scanning or preproce
 <li> PLDs → 0.25 </li>
 <li> Bolus duration → 1.8 s </li><br></br>
 
-**Corrections**
+**Corrections Tab**
 <li> Select motion correction (M0 file) </li>
+<br></br>
 
 **Structural Data Tab**
 <li>Load structural output from FSL:
     Folder → {directory}/${subid}_T1w.anat
     Load whole brain, white matter, grey matter, CSF images. 
->> Note: I segmented the T1 on SPM12 to make c1, c2, and c3</li><br></br>
+>> Note: I segmented the T1 on SPM12 to make c1, c2, and c3 <br>
 
 **Calibration Tab**
-<li>Calibration method: Voxelwise/li>
-<li>Calibration image: m0scan.nii/li>
+<li>Calibration method: Voxelwise </li>
+<li>Calibration image: m0scan.nii </li>
 <li>Sequence TR (s): 10 </li>
 <li>Sequence TE (ms): 0 </li>
 <li>Calibration gain: 1 </li>
@@ -102,8 +102,9 @@ Why? NaN voxels can appear when something goes wrong during scanning or preproce
 **Output Tab**
 <li>Choose output space: native, structural, or MNI (I selected native ASL space)</li>
 <li>Select Output mask, Output calibration data, Output structural segmentation</li>
+<br></br>
 
->> Note! After selecting setting the options in the "ASL data processing" widget, remember to check the "Save copy of output data" option and create a folder before clicking "Run", otherwise Quantiphyse would not save the output within a folder by default. You can manually save each output data by selecting the data in the "Volume" widget (first widget) and select "File" menu → "Save current data".
+> NOTE: After selecting setting the options in the "ASL data processing" widget, remember to check the "Save copy of output data" option and create a folder before clicking "Run", otherwise Quantiphyse would not save the output within a folder by default. You can manually save each output data by selecting the data in the "Volume" widget (first widget) and select "File" menu → "Save current data".
 
 
 
