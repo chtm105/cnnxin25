@@ -77,27 +77,34 @@ Why? NaN voxels can appear when something goes wrong during scanning or preproce
 <li> PLDs → 0.25 </li>
 <li> Bolus duration → 1.8 s </li><br></br>
 
+**Corrections**
+<li> Select motion correction (M0 file) </li>
+
 **Structural Data Tab**
 <li>Load structural output from FSL:
     Folder → {directory}/${subid}_T1w.anat
-    Load whole brain, white matter, grey matter, CSF images</li><br></br>
+    Load whole brain, white matter, grey matter, CSF images. 
+>> Note: I segmented the T1 on SPM12 to make c1, c2, and c3</li><br></br>
 
 **Calibration Tab**
-<li>MO image: ${subid}_mOscan </li>
-<li>Inversion efficiency: 0.85 * 0.95 * 0.95 = 0.767</li>
-<li>Calibration method: Set as needed</li>
+<li>Calibration method: Voxelwise/li>
+<li>Calibration image: m0scan.nii/li>
+<li>Sequence TR (s): 10 </li>
+<li>Sequence TE (ms): 0 </li>
+<li>Calibration gain: 1 </li>
+<li>Inversion efficiency: 0.85 </li>
 <li>(Use defaults or custom values from Alsop et al., 2015) </li><br></br>
 
 **Analysis Tab**
-<li>Check Partial Volume Correction if needed. (You must run separately for PVC and non-PVC analyses) </li><br></br>
+<li>Select "Spatial regularization", "Fix label duration", "Fix arterial transit time"</li>
+<li>Check Partial Volume Correction if needed. (You must run separately for PVC and non-PVC analyses)</li><br></br>
 
 **Output Tab**
-<li>Choose output space (native, structural, or MNI)</li>
+<li>Choose output space: native, structural, or MNI (I selected native ASL space)</li>
+<li>Select Output mask, Output calibration data, Output structural segmentation</li>
 
+>> Note! After selecting setting the options in the "ASL data processing" widget, remember to check the "Save copy of output data" option and create a folder before clicking "Run", otherwise Quantiphyse would not save the output within a folder by default. You can manually save each output data by selecting the data in the "Volume" widget (first widget) and select "File" menu → "Save current data".
 
-
-## 7.  ✅ 5. Resample Segmentation Masks (Optional)
-## 8.  ✅ 6. Save Outputs
 
 
 
