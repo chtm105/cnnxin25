@@ -66,7 +66,7 @@ Why? NaN voxels can appear when something goes wrong during scanning or preproce
 
 1. Go to Widgets → ASL → ASL Data Processing
 2. Remember to load data for No NaN asl.nii files
-3. Usually, the software will autodetect the parameters, but double check with the parameter detials from the asl.json file
+3. Usually, the software will autodetect the parameters, but double check with the parameter details from the asl.json file
 
 **ASL Data Tab** 
 <li>ASL data → subDRO1_asl_nonan.nii</li>
@@ -81,11 +81,9 @@ Why? NaN voxels can appear when something goes wrong during scanning or preproce
 <br></br>
 
 **Structural Data Tab**
-<li>Load structural output from FSL:
-    Folder → {directory}/${subid}_T1w.anat
-    Load whole brain, white matter, grey matter, CSF images. 
->> Note: I segmented the T1 on SPM12 to make c1, c2, and c3 <br>
-
+<li>Load structural output from FSL: Folder → {directory}/${subid}_T1w.anat </li>
+<li>Don't override automatic segmentation!</li>
+<br></br>
 **Calibration Tab**
 <li>Calibration method: Voxelwise </li>
 <li>Calibration image: m0scan.nii </li>
