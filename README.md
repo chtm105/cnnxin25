@@ -100,6 +100,7 @@ Why? NaN voxels can appear when something goes wrong during scanning or preproce
 **Output Tab**
 <li>Choose output space: native, structural, or MNI (I selected native ASL space)</li>
 <li>Select Output mask, Output calibration data, Output structural segmentation</li>
+<li>Select Save HTML report, because this contains the numerical values for the ASL data</li>
 <br></br>
 
 > NOTE: After selecting setting the options in the "ASL data processing" widget, remember to check the "Save copy of output data" option and create a folder before clicking "Run", otherwise Quantiphyse would not save the output within a folder by default. You can manually save each output data by selecting the data in the "Volume" widget (first widget) and select "File" menu → "Save current data".
