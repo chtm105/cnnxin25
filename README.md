@@ -9,7 +9,7 @@ After installation is finished, you’ll see a message “FSL successfully insta
 > To access FSLEYES viewer, type "fsleyes -std &"
 
 ## 2. Downloading Quantiphyse
-Installing Quantiphyse needs a conda environment, so need to install anaconda. But you have to bypass the new M4 chip and use the older Intel chip which has the installations for Quantiphyse already configured
+Installing Quantiphyse needs a conda environment, so need to install anaconda. But you might have to bypass the new M4 chip and use the older Intel chip which has the installations for Quantiphyse already configured
 
 <pre>CONDA_SUBDIR=osx-64 conda create -n qp python=3.7 --no-default-packages -c conda-forge
 conda activate qp
