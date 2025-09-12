@@ -13,6 +13,7 @@ Installing Quantiphyse needs a conda environment, so need to install anaconda. B
 
 <pre>CONDA_SUBDIR=osx-64 conda create -n qp python=3.7 --no-default-packages -c conda-forge
 conda activate qp
+pip install -U sphinx
 pip install quantiphyse 
 pip install quantiphyse-asl
 pip install pyobjc 
@@ -20,6 +21,8 @@ export QT_MAC_WANTS_LAYER=1
 "Quantiphyse"</pre>
 
 Quantiphyse will now begin running. 
+> NOTE: to check the version for Quantiphyse, Sphinx or any installations, type:
+> sphinx-build --version
 
 ## 3. Preprocess Structural Images (T1w) using FSL
 For my test run, I will be analyzing OSIPI DRO1, 3, 5, 7, and 9
